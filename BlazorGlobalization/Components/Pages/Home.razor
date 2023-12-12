@@ -1,0 +1,31 @@
+﻿@page "/"
+
+<PageTitle>Blazor Globalization</PageTitle>
+
+@* See docs for more information about number format strings
+https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings *@
+
+<h2>Number Format</h2>
+<div style="display: flex; flex-direction: column">
+    <div><b>c:</b> @DecimalValue.ToString("c")</div>
+    <div><b>n:</b> @DecimalValue.ToString("n")</div>
+</div>
+
+@* See docs for more information about date format strings
+https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings *@
+
+<h2 style="margin-top: 40px">Date Format</h2>
+
+<div style="display: flex; flex-direction: column">
+    <div><b>ToShortDateString:</b> @DateOfBirth.ToShortDateString()</div>
+    <div><b>ToLongDateString:</b> @DateOfBirth.ToLongDateString()</div>
+
+    <div><b>Custom Format (MM-dd-yyyy):</b> @DateOfBirth.ToString("MM-dd-yyyy")</div>
+    <div><b>ToString:</b> @DateOfBirth.ToString()</div>
+</div>
+
+@code {
+    public DateTime DateOfBirth { get; set; } = new DateTime(1990, 9, 21);
+    public decimal DecimalValue { get; set; } = 1678.95m;
+    public int IntegerValue { get; set; } = 16000;
+}
